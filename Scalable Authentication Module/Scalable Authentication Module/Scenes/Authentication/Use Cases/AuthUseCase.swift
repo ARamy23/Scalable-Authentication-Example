@@ -9,35 +9,49 @@
 import Foundation
 
 protocol LoginableAuthProvider {
-    func login()
+    func login(_ onComplete: @escaping ((Result<Void, Error>) -> Void))
 }
 
 protocol LogoutableAuthProvider {
-    func logout()
+    func logout(_ onComplete: @escaping ((Result<Void, Error>) -> Void))
 }
 
 protocol RegisterableAuthProvider {
-    func register()
+    func register(_ onComplete: @escaping ((Result<Void, Error>) -> Void))
 }
 
-protocol AuthProvider: LoginableAuthProvider, LogoutableAuthProvider, RegisterableAuthProvider { }
-
-class AuthUseCase {
-    private let authProvider: AuthProvider
+class LoginUseCase {
+    private let authProvider: LoginableAuthProvider
     
-    init(authProvider: AuthProvider) {
+    init(authProvider: LoginableAuthProvider) {
         self.authProvider = authProvider
     }
     
-    func login() {
-        authProvider.login()
+    func login(_ onComplete: @escaping ((Result<Void, Error>) -> Void)) {
+        authProvider.login(onComplete)
+    }
+}
+
+class RegisterUseCase {
+    private let authProvider: RegisterableAuthProvider
+    
+    init(authProvider: RegisterableAuthProvider) {
+        self.authProvider = authProvider
     }
     
-    func register() {
-        authProvider.register()
+    func register(_ onComplete: @escaping ((Result<Void, Error>) -> Void)) {
+        authProvider.register(onComplete)
+    }
+}
+
+class LogoutUseCase {
+    private let authProvider: LogoutableAuthProvider
+    
+    init(authProvider: LogoutableAuthProvider) {
+        self.authProvider = authProvider
     }
     
-    func logout() {
-        authProvider.logout()
+    func logout(_ onComplete: @escaping ((Result<Void, Error>) -> Void)) {
+        authProvider.logout(onComplete)
     }
 }
