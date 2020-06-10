@@ -7,21 +7,24 @@
 //
 
 import Foundation
+import UIKit.UIViewController
 
 class AuthenticationModel {
-    func loginWithEmail(_ email: String, _ password: String) {
+    func loginWithEmail(_ email: String, _ password: String, _ onComplete: @escaping ((Result<Void, Error>) -> Void)) {
         
     }
     
-    func registerWithEmail(_ email: String, _ password: String) {
+    func registerWithEmail(_ email: String, _ password: String, _ onComplete: @escaping ((Result<Void, Error>) -> Void)) {
         
     }
     
-    func loginWithGoogle() {
+    func loginWithGoogle(_ onComplete: @escaping ((Result<Void, Error>) -> Void)) {
         
     }
     
-    func loginWithApple() {
-        
+    func loginWithApple(_ context: UIViewController, _ onComplete: @escaping ((Result<Void, Error>) -> Void)) {
+        let authProvider = AppleAuthStrategy(context)
+        let useCase = LoginUseCase(authProvider: authProvider)
+        useCase.login(onComplete)
     }
 }

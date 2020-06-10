@@ -14,23 +14,37 @@ class AuthenticationViewController: UIViewController {
 
     lazy var model = AuthenticationModel()
     
+    private func handleAuthentication() -> ((Result<Void, Error>) -> Void) {
+        return { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                // Go to Profile
+                break
+            case .failure(_):
+                // Show Error
+                break
+            }
+        }
+    }
+    
     @IBAction func loginWithEmail(_ sender: Any) {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        model.loginWithEmail(email, password)
+        model.loginWithEmail(email, password, handleAuthentication())
     }
     
     @IBAction func registerWithEmail(_ sender: Any) {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        model.registerWithEmail(email, password)
+        model.registerWithEmail(email, password, handleAuthentication())
     }
     
     @IBAction func loginWithGoogle(_ sender: Any) {
-        model.loginWithGoogle()
+        model.loginWithGoogle(handleAuthentication())
     }
     
     @IBAction func loginWithApple(_ sender: Any) {
-        model.loginWithApple()
+        model.loginWithApple(handleAuthentication())
     }
 }

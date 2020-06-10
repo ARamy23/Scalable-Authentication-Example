@@ -15,6 +15,7 @@
 		B85EB70524917E8D00374584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85EB70324917E8D00374584 /* LaunchScreen.storyboard */; };
 		B85EB711249181C400374584 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85EB710249181C400374584 /* AuthenticationModel.swift */; };
 		B891AD7E2491838000EA5BC8 /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891AD7D2491838000EA5BC8 /* AuthUseCase.swift */; };
+		B891AD812491850700EA5BC8 /* AppleAuthStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891AD802491850700EA5BC8 /* AppleAuthStrategy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		B85EB70624917E8D00374584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85EB710249181C400374584 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		B891AD7D2491838000EA5BC8 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
+		B891AD802491850700EA5BC8 /* AppleAuthStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthStrategy.swift; sourceTree = "<group>"; };
+		B891AD822491867900EA5BC8 /* Scalable Authentication Module.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Scalable Authentication Module.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 		B85EB6F724917E8800374584 /* Scalable Authentication Module */ = {
 			isa = PBXGroup;
 			children = (
+				B891AD822491867900EA5BC8 /* Scalable Authentication Module.entitlements */,
 				B85EB70D2491807000374584 /* Scenes */,
 				B85EB6F824917E8800374584 /* AppDelegate.swift */,
 				B85EB6FA24917E8800374584 /* SceneDelegate.swift */,
@@ -74,6 +78,7 @@
 		B85EB70C2491806B00374584 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				B891AD7F249184EB00EA5BC8 /* Strategies */,
 				B891AD7C2491835C00EA5BC8 /* Use Cases */,
 				B85EB70F249181A000374584 /* Model */,
 				B85EB70E2491819800374584 /* View */,
@@ -111,6 +116,14 @@
 				B891AD7D2491838000EA5BC8 /* AuthUseCase.swift */,
 			);
 			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		B891AD7F249184EB00EA5BC8 /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				B891AD802491850700EA5BC8 /* AppleAuthStrategy.swift */,
+			);
+			path = Strategies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +202,7 @@
 				B85EB6F924917E8800374584 /* AppDelegate.swift in Sources */,
 				B891AD7E2491838000EA5BC8 /* AuthUseCase.swift in Sources */,
 				B85EB6FB24917E8800374584 /* SceneDelegate.swift in Sources */,
+				B891AD812491850700EA5BC8 /* AppleAuthStrategy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +346,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Scalable Authentication Module/Scalable Authentication Module.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 969Y6REAB6;
 				INFOPLIST_FILE = "Scalable Authentication Module/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -349,7 +365,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Scalable Authentication Module/Scalable Authentication Module.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 969Y6REAB6;
 				INFOPLIST_FILE = "Scalable Authentication Module/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
